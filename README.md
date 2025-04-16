@@ -40,6 +40,14 @@ This app is built using **Flutter**, ensuring a seamless user experience across 
 
 *Lookly* features a custom splash screen to welcome you and get you started on your food image analysis journey! 🌟✨
 
+## 📥 Cara Menggunakan
+
+1. **Unduh Aplikasi:** [Download Lookly APK](build/app/outputs/flutter-apk/app-release.apk) untuk menginstal aplikasi di perangkat Android kamu.
+2. **Unggah Gambar:** Buka aplikasi dan unggah gambar makanan yang ingin dianalisis.
+3. **Lihat Hasil:** Aplikasi akan memberikan analisis dan deskripsi mendalam tentang gambar tersebut.
+4. **Lihat Riwayat:** Cek riwayat analisis yang telah dilakukan melalui menu Riwayat.
+5. **Hapus Riwayat:** Hapus riwayat analisis kapan saja melalui pengaturan aplikasi.
+
 ---
 
 Feel free to explore the app and let us know if you have any feedback or suggestions. Happy analyzing! 🍴💖
