@@ -16,9 +16,9 @@ Food images speak for themselves, but *Lookly* takes it a step further by giving
 
 Here’s a sneak peek at what you can expect from *Lookly*:
 
-| **Home Screen** 🏠 | **Analysis Result** 🍔 | **History Screen** 📜 |
+| **Home Screen** | **Analysis Result** | **History Screen** |
 |--------------------|-----------------------|-----------------------|
-| ![Home Screen](assets/ss/home.png) | ![Analysis Result](assets/ss/result.png) | ![History Screen](assets/ss/history.png) |
+| ![Home Screen](home.png) | ![Analysis Result](result.png) | ![History Screen](history.png) |
 
 ## 🖼️ Additional File
 
