@@ -16,7 +16,7 @@ void main() async {
   await Hive.openBox<HistoryItem>('historyBox');
 
   runApp(
-    kIsWeb && !kReleaseMode
+    kIsWeb
         ? DevicePreview(
             enabled: true,
             builder: (context) => const MyApp(),
