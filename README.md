@@ -1,16 +1,45 @@
-# lookly
+# 🌟 Lookly: Your Image-Based Food Analysis & History App 🍴
 
-A new Flutter project.
+Welcome to *Lookly* 🎉, an app that analyzes food images and lets you track your past analysis with ease! 🚀 Upload food images, get detailed insights, and manage your history all in one place. 🧠📸✨
 
-## Getting Started
+## 🛒 What's Inside?
 
-This project is a starting point for a Flutter application.
+**📸 Image Analysis:** Upload a picture of food, and *Lookly* will provide a detailed description and analysis of the image.  
+**📜 History:** View and track your past food analysis easily.  
+**🗑️ Delete History:** You can delete your history whenever you like.
 
-A few resources to get you started if this is your first Flutter project:
+## 🎯 Why This App?
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Food images speak for themselves, but *Lookly* takes it a step further by giving you deep insights into each image. Whether you're exploring new foods or keeping track of your food history, *Lookly* makes it simple and fun! 🍽️📊
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📸 Screenshots
+
+Here’s a sneak peek at what you can expect from *Lookly*:
+
+| **Home Screen** 🏠 | **Analysis Result** 🍔 | **History Screen** 📜 |
+|--------------------|-----------------------|-----------------------|
+| ![Home Screen](assets/ss/home.png) | ![Analysis Result](assets/ss/result.png) | ![History Screen](assets/ss/history.png) |
+
+## 🖼️ Additional File
+
+Below is an A4-sized landscape image related to *Lookly*:
+
+![A4 Landscape](Lookly-Mockup.png)
+
+## 🚀 Features
+
+- **📸 Image-Based Food Analysis:** Upload images to get detailed food analysis using AI.
+- **📜 History:** Keep track of all your past image analyses.
+- **🗑️ History Deletion:** Easily delete your history at any time.
+
+## 🛠️ Built With
+
+This app is built using **Flutter**, ensuring a seamless user experience across both iOS and Android platforms. 🖥️📱
+
+## 🎨 Splash Screen
+
+*Lookly* features a custom splash screen to welcome you and get you started on your food image analysis journey! 🌟✨
+
+---
+
+Feel free to explore the app and let us know if you have any feedback or suggestions. Happy analyzing! 🍴💖
