@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:mime/mime.dart';
+import 'dart:typed_data';
 
 class GeminiService {
   late final GenerativeModel _model;
@@ -27,53 +28,52 @@ class GeminiService {
 
     _chat = _model.startChat(history: [
       Content.multi([
-        TextPart(
-'''
+        TextPart('''
 Halo Gemini! Aku akan mengirimkan sebuah gambar—bisa berupa makanan, kendaraan, tempat, manusia, atau aktivitas.
 
 Tolong deskripsikan gambar ini secara detail dan menarik dalam bahasa Indonesia. Tulis dengan gaya santai, seolah ngobrol, tapi tetap informatif.
 
 Format penjelasan yang aku butuhkan:
 
-**1. 🔍 Objek yang Terlihat**  
+1. 🔍 Objek yang Terlihat  
 (utama & tambahan)  
 
-**2. 🎨 Warna Dominan**  
+2. 🎨 Warna Dominan  
 Kesan visual  
 
-**3. 👥 Aktivitas/Interaksi**  
+3. 👥 Aktivitas/Interaksi  
 (jika ada manusia/hewan)  
 
-**4. 🌍 Latar Belakang**  
+4. 🌍 Latar Belakang  
 Konteks tempat  
 
-**5. 🕰️ Waktu/Suasana**  
+5. 🕰️ Waktu/Suasana  
 (siang/malam, ramai/sepi)  
 
-**6. 🧾 Teks Terlihat**  
+6. 🧾 Teks Terlihat  
 (jika ada)  
 
-**7. 💡 Makna/Fungsi**  
+7. 💡 Makna/Fungsi  
 Interpretasi gambar  
 
-**8. 🧠 Insight Tambahan**  
+8. 🧠 Insight Tambahan  
 Fun fact terkait tema  
 
-**9. 🔎 Rekomendasi**  
+9. 🔎 Rekomendasi  
 Eksplorasi lanjutan  
 
-**Khusus Kategori:**  
-- **🍽️ Makanan:** Ide kuliner, info gizi, tempat populer  
-- **🚗 Kendaraan:** Jenis, fitur, budaya otomotif  
-- **🏞️ Tempat:** Sejarah, lokasi, tips traveling  
-- **🎭 Aktivitas:** Insight sosial & budaya  
+Khusus Kategori:  
+- 🍽️ Makanan: Ide kuliner, info gizi, tempat populer  
+- 🚗 Kendaraan: Jenis, fitur, budaya otomotif  
+- 🏞️ Tempat: Sejarah, lokasi, tips traveling  
+- 🎭 Aktivitas: Insight sosial & budaya  
 
-Tolong buat deskripsinya enak dibaca, pakai paragraf pendek atau poin-poin kalau perlu. Format bold dengan **.
+Tolong buat deskripsinya enak dibaca, pakai paragraf pendek atau poin-poin kalau perlu.
 '''
         ),
       ]),
       Content.model([
-        TextPart('Siap! Kirim gambarnya dan saya akan berikan deskripsi detail dengan format bold di bagian penting.'),
+        TextPart('Siap! Kirim gambarnya dan saya akan berikan deskripsi detail dengan format rapi.'),
       ]),
     ]);
   }
@@ -88,9 +88,28 @@ Tolong buat deskripsinya enak dibaca, pakai paragraf pendek atau poin-poin kalau
           DataPart(mimeType, imageBytes),
         ]),
       );
-      return response.text ?? '❌ Tidak ada hasil dari Gemini.';
+      String description = response.text ?? '❌ Tidak ada hasil dari Gemini.';
+      return _removeAsterisks(description);
     } catch (e) {
       return '❌ Terjadi error: $e';
     }
+  }
+
+  Future<String> describeImageWeb(Uint8List imageBytes) async {
+    try {
+      final response = await _chat.sendMessage(
+        Content.multi([
+          DataPart('image/jpeg', imageBytes),
+        ]),
+      );
+      String description = response.text ?? '❌ Tidak ada hasil dari Gemini.';
+      return _removeAsterisks(description);
+    } catch (e) {
+      return '❌ Terjadi error: $e';
+    }
+  }
+
+  String _removeAsterisks(String text) {
+    return text.replaceAll('*', '');
   }
 }

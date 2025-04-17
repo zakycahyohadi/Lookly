@@ -17,21 +17,24 @@ class HistoryItemAdapter extends TypeAdapter<HistoryItem> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return HistoryItem(
-      imagePath: fields[0] as String,
-      result: fields[1] as String,
-      createdAt: fields[2] as DateTime,
+      imagePath: fields[0] as String?,
+      webImageBytes: fields[1] as Uint8List?,
+      result: fields[2] as String,
+      createdAt: fields[3] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, HistoryItem obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.imagePath)
       ..writeByte(1)
-      ..write(obj.result)
+      ..write(obj.webImageBytes)
       ..writeByte(2)
+      ..write(obj.result)
+      ..writeByte(3)
       ..write(obj.createdAt);
   }
 

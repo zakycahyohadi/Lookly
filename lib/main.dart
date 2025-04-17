@@ -9,12 +9,24 @@ import 'package:lookly/screen/home.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dotenv.load(); // Load .env
+  // Memuat file .env
+  await dotenv.load();
 
+  // Inisialisasi Hive
   await Hive.initFlutter();
   Hive.registerAdapter(HistoryItemAdapter());
-  await Hive.openBox<HistoryItem>('historyBox');
 
+  // Membuka box Hive
+  var historyBox = await Hive.openBox<HistoryItem>('historyBox');
+
+  // Verifikasi apakah box berhasil dibuka
+  if (historyBox.isOpen) {
+    print('History box opened successfully!');
+  } else {
+    print('Failed to open History box');
+  }
+
+  // Menjalankan aplikasi
   runApp(
     kIsWeb
         ? DevicePreview(

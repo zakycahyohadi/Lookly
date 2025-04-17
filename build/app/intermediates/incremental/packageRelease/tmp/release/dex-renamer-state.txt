@@ -1,0 +1,4 @@
+#Wed Apr 16 08:33:02 WIB 2025
+base.0=/Users/cahyoapple45/Documents/flutter-project/lookly/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

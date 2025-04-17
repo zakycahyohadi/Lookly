@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lookly/models/history_item.dart';
@@ -34,12 +35,16 @@ class HistoryDetailPage extends StatelessWidget {
               color: Colors.white,
               shadowColor: Colors.black.withOpacity(0.1),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.file(
-                  File(item.imagePath),
-                  height: 250, // Memastikan gambar tidak terlalu besar
-                  fit: BoxFit.cover,
-                ),
+                borderRadius: BorderRadius.circular(12),
+                child: kIsWeb
+                    ? Image.memory(
+                        item.webImageBytes!,
+                        fit: BoxFit.contain, // Menampilkan gambar dalam ukuran asli
+                      )
+                    : Image.file(
+                        File(item.imagePath!),
+                        fit: BoxFit.contain, // Menampilkan gambar dalam ukuran asli
+                      ),
               ),
             ),
             const SizedBox(height: 20),

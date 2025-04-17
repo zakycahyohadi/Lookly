@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -106,15 +107,23 @@ class HistoryPage extends StatelessWidget {
                       padding: const EdgeInsets.all(12),
                       child: Row(
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Image.file(
-                              File(item.imagePath),
-                              width: 70,
-                              height: 70,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+                         ClipRRect(
+  borderRadius: BorderRadius.circular(12),
+  child: kIsWeb
+      ? Image.memory(
+          item.webImageBytes!,
+          width: 70,
+          height: 70,
+          fit: BoxFit.cover,
+        )
+      : Image.file(
+          File(item.imagePath!),
+          width: 70,
+          height: 70,
+          fit: BoxFit.cover,
+        ),
+),
+
                           const SizedBox(width: 12),
                           Expanded(
                             child: Column(
