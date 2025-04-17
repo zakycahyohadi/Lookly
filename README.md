@@ -24,7 +24,7 @@ Here’s a sneak peek at what you can expect from *Lookly*:
 
 Below is an A4-sized landscape image related to *Lookly*:
 
-![A4 Landscape](Lookly-Mockup.png)
+![A4 Landscape](Mockup-Lookly.png)
 
 ## 🚀 Features
 
